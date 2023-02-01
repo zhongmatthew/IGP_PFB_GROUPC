@@ -25,5 +25,3 @@ def overhead():
         if float(percentage) == max(percentage_list):
             with open("Summary_Report.txt", mode = "w", encoding = "UTF-8") as file:
                 file.write(f"[HIGHEST OVERHEADS] {heading}: {percentage}%\n")
-
-overhead()

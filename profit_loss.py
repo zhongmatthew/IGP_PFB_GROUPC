@@ -27,11 +27,9 @@ def profitloss():
 
         profit = net_profit
 
-    with open("Summary_Report.txt", mode = "w", encoding = "UTF-8") as file:
+    with open("Summary_Report.txt", mode = "a", encoding = "UTF-8") as file:
         if not deficit_list:
             file.write("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
         else:
             for day, deficit in deficit_list:
                 file.write(f"[PROFIT DEFICIT] DAY: {day}, AMOUNT: USD{deficit}")
-
-profitloss()
