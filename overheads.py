@@ -18,12 +18,12 @@ def overhead():
     
     percentage_list = []
 
-    for headings, percentage in overheads:
+    for heading, percentage in overheads:
         percentage_list.append(float(percentage))
 
     for heading, percentage in overheads:
         if float(percentage) == max(percentage_list):
-            with open("Summary_Report.txt", mode = "w", encoding="UTF-8") as file:
+            with open("Summary_Report.txt", mode = "w", encoding = "UTF-8") as file:
                 file.write(f"[HIGHEST OVERHEADS] {heading}: {percentage}%\n")
 
 overhead()
