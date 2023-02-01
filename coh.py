@@ -24,7 +24,7 @@ def coh():
         for row in reader:
             cash_on_hand.append(row)
 
-        # create a variable "current_cash" to store base cash on hand (previous day)
+        # create a variable "cash" to store base cash on hand (previous day)
         cash = cash_on_hand[0][1] # use string slicing to retrieve data
 
         # create an empty list to store the days that a cash deficit occurs
@@ -34,7 +34,7 @@ def coh():
         for day, current_cash in cash_on_hand:
             
             # use "if" to check if cash on hand is lower than the previous day
-            if cash > current_cash:
+            if current_cash < cash :
 
                 # append the day number and deficit amount into the list
                 deficit_list.append([day,int(cash) - int(current_cash)])
@@ -45,12 +45,12 @@ def coh():
         # create a new .txt file to store summary report, "a" in mode parameter means append
         with open("Summary_Report.txt", mode = "a", encoding = "UTF-8") as file:
 
-            # use "if" to check if the deficit list is empty
+            # use "if not" to check if the deficit list is empty
             if not deficit_list:
                 # write the text in summary report if list is empty
                 file.write("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
             
-            # shows that list is not empty which means there are days where deficit occurs
+            # shows that list is not empty which means there are days where cash on hand deficit occurs
             else:
                 # use "for" loop again to iterate over nested list
                 for day, deficit in deficit_list:
